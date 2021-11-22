@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: rlcs
-          image: "gcr.io/sousandrei/rlcs:{{ .Values.image }}"
+          image: "gcr.io/sousandrei/rlcs:latest"
           imagePullPolicy: Always
           envFrom:
             - secretRef:

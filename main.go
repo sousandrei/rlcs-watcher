@@ -72,6 +72,7 @@ func main() {
 	log.Println("Starting loop")
 	for {
 		time.Sleep(1 * time.Minute)
+		log.Println("Processing")
 
 		res, err := http.Get(BASE_URL + "/news")
 
