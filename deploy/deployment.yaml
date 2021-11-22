@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rlcs
+  namespace: rlcs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rlcs
+  template:
+    metadata:
+      labels:
+        app: rlcs
+    spec:
+      containers:
+        - name: rlcs
+          image: "gcr.io/sousandrei/rlcs:{{ .Values.image }}"
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: rlcs
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "250Mi"
+            limits:
+              cpu: "1"
+              memory: "500Mi"
