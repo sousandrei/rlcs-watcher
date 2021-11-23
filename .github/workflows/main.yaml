@@ -46,4 +46,6 @@ jobs:
 
       - run: make push
 
+      - run: echo $SECRET > deploy/secret.yaml
+
       - run: make deploy
